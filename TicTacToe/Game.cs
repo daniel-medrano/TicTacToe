@@ -45,7 +45,8 @@ namespace TicTacToe
             {
                 turn = 1;
                 turnLabel.Text = turnLabel.Text.Replace("X", "O");
-            } else
+            } 
+            else
             {
                 turn = 0;
                 turnLabel.Text = turnLabel.Text.Replace("O", "X");
@@ -68,50 +69,30 @@ namespace TicTacToe
         {
             for (int row = 0; row < 3; row++)
             {
-                if (squares[row, 0].Text == "X" && squares[row, 1].Text == "X" && squares[row, 2].Text == "X")
+                if (squares[row, 0].Text != "" && squares[row, 1].Text == squares[row, 0].Text && squares[row, 2].Text == squares[row, 1].Text)
                 {
-                    winner = "X";
-                    return true;
-                } else if (squares[row, 0].Text == "O" && squares[row, 1].Text == "O" && squares[row, 2].Text == "O")
-                {
-                    winner = "O";
+                    winner = squares[row, 0].Text;
                     return true;
                 }
             }
 
             for (int col = 0; col < 3; col++)
             {
-                if (squares[0, col].Text == "X" && squares[1, col].Text == "X" && squares[2, col].Text == "X")
+                if (squares[0, col].Text != "" && squares[1, col].Text == squares[0, col].Text && squares[2, col].Text == squares[1, col].Text)
                 {
-                    winner = "X";
-                    return true;
-                }
-                else if (squares[0, col].Text == "O" && squares[1, col].Text == "O" && squares[2, col].Text == "O")
-                {
-                    winner = "O";
+                    winner = squares[0, col].Text;
                     return true;
                 }
             }
 
-            if (squares[0, 0].Text == "X" && squares[1, 1].Text == "X" && squares[2, 2].Text == "X")
+            if (squares[0, 0].Text != "" && squares[1, 1].Text == squares[0, 0].Text && squares[2, 2].Text == squares[1, 1].Text)
             {
-                winner = "X";
+                winner = squares[0, 0].Text;
                 return true;
             }
-            else if (squares[0, 0].Text == "O" && squares[1, 1].Text == "O" && squares[2, 2].Text == "O")
+            if (squares[0, 2].Text != "" && squares[1, 1].Text == squares[0, 2].Text && squares[2, 0].Text == squares[1, 1].Text)
             {
-                winner = "O";
-                return true;
-            }
-
-            if (squares[0, 2].Text == "X" && squares[1, 1].Text == "X" && squares[2, 0].Text == "X")
-            {
-                winner = "X";
-                return true;
-            }
-            else if (squares[0, 2].Text == "O" && squares[1, 1].Text == "O" && squares[2, 0].Text == "O")
-            {
-                winner = "O";
+                winner = squares[0, 2].Text;
                 return true;
             }
 
@@ -146,16 +127,6 @@ namespace TicTacToe
                 }
                 button1.Enabled = false;
                 UpdateData();
-                if (IsGameOver())
-                {
-                    MessageBox.Show("GAME OVER: " + winner + " won!");
-                    GameOver();
-                } 
-                else if (IsADraw())
-                {
-                    MessageBox.Show("GAME OVER: It is a draw.");
-                }
-                NextTurn();
             }
         }
 
@@ -173,16 +144,6 @@ namespace TicTacToe
                 }
                 button2.Enabled = false;
                 UpdateData();
-                if (IsGameOver())
-                {
-                    MessageBox.Show("GAME OVER: " + winner + " won!");
-                    GameOver();
-                }
-                else if (IsADraw())
-                {
-                    MessageBox.Show("GAME OVER: It is a draw.");
-                }
-                NextTurn();
             }
         }
 
@@ -200,16 +161,6 @@ namespace TicTacToe
                 }
                 button3.Enabled = false;
                 UpdateData();
-                if (IsGameOver())
-                {
-                    MessageBox.Show("GAME OVER: " + winner + " won!");
-                    GameOver();
-                }
-                else if (IsADraw())
-                {
-                    MessageBox.Show("GAME OVER: It is a draw.");
-                }
-                NextTurn();
             }
         }
 
@@ -227,16 +178,6 @@ namespace TicTacToe
                 }
                 button4.Enabled = false;
                 UpdateData();
-                if (IsGameOver())
-                {
-                    MessageBox.Show("GAME OVER: " + winner + " won!");
-                    GameOver();
-                }
-                else if (IsADraw())
-                {
-                    MessageBox.Show("GAME OVER: It is a draw.");
-                }
-                NextTurn();
             }
 
         }
@@ -255,16 +196,6 @@ namespace TicTacToe
                 }
                 button5.Enabled = false;
                 UpdateData();
-                if (IsGameOver())
-                {
-                    MessageBox.Show("GAME OVER: " + winner + " won!");
-                    GameOver();
-                }
-                else if (IsADraw())
-                {
-                    MessageBox.Show("GAME OVER: It is a draw.");
-                }
-                NextTurn();
             }
         }
 
@@ -282,16 +213,6 @@ namespace TicTacToe
                 }
                 button6.Enabled = false;
                 UpdateData();
-                if (IsGameOver())
-                {
-                    MessageBox.Show("GAME OVER: " + winner + " won!");
-                    GameOver();
-                }
-                else if (IsADraw())
-                {
-                    MessageBox.Show("GAME OVER: It is a draw.");
-                }
-                NextTurn();
             }
         }
 
@@ -309,16 +230,6 @@ namespace TicTacToe
                 }
                 button7.Enabled = false;
                 UpdateData();
-                if (IsGameOver())
-                {
-                    MessageBox.Show("GAME OVER: " + winner + " won!");
-                    GameOver();
-                }
-                else if (IsADraw())
-                {
-                    MessageBox.Show("GAME OVER: It is a draw.");
-                }
-                NextTurn();
             }
         }
 
@@ -336,16 +247,6 @@ namespace TicTacToe
                 }
                 button8.Enabled = false;
                 UpdateData();
-                if (IsGameOver())
-                {
-                    MessageBox.Show("GAME OVER: " + winner + " won!");
-                    GameOver();
-                }
-                else if (IsADraw())
-                {
-                    MessageBox.Show("GAME OVER: It is a draw.");
-                }
-                NextTurn();
             }
         }
 
@@ -363,16 +264,6 @@ namespace TicTacToe
                 }
                 button9.Enabled = false;
                 UpdateData();
-                if (IsGameOver())
-                {
-                    MessageBox.Show("GAME OVER: " + winner + " won!");
-                    GameOver();
-                }
-                else if (IsADraw())
-                {
-                    MessageBox.Show("GAME OVER: It is a draw.");
-                }
-                NextTurn();
             }
         }
 
@@ -380,6 +271,17 @@ namespace TicTacToe
         {
             string strMoves = "Moves: " + ++moves;
             movesLabel.Text = strMoves;
+
+            if (IsGameOver())
+            {
+                MessageBox.Show("GAME OVER: " + winner + " won!");
+                GameOver();
+            }
+            else if (IsADraw())
+            {
+                MessageBox.Show("GAME OVER: It is a draw.");
+            }
+            NextTurn();
 
         }
 
@@ -394,24 +296,17 @@ namespace TicTacToe
 
         private void reset_Click(object sender, EventArgs e)
         {
-            button1.Text = "";
-            button1.Enabled = true;
-            button2.Text = "";
-            button2.Enabled = true;
-            button3.Text = "";
-            button3.Enabled = true;
-            button4.Text = "";
-            button4.Enabled = true;
-            button5.Text = "";
-            button5.Enabled = true;
-            button6.Text = "";
-            button6.Enabled = true;
-            button7.Text = "";
-            button7.Enabled = true;
-            button8.Text = "";
-            button8.Enabled = true;
-            button9.Text = "";
-            button9.Enabled = true;
+            for (int row = 0; row < 3; row++)
+            {
+                for (int col = 0; col < 3; col++)
+                {
+                    squares[row, col].Text = "";
+                    squares[row, col].Enabled = true;
+                }
+            }
+
+            moves = 0;
+            movesLabel.Text = "Moves: 0";
         }
 
         private void GameOver()
